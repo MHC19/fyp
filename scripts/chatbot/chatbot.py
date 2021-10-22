@@ -23,7 +23,7 @@ k = aiml.Kernel()
 k.learn(path)
 # M: Get response from learned AIML file
 # M: This will load the other AIML files
-k.respond('LEARN AIML FILES')
+k.respond('LEARNING AIML FILES')
 
 # --- Setting up pub and sub stuff
 # M: Used to publish topic for USB speaker
