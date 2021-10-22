@@ -2,6 +2,7 @@
 import cv2
 import os
 import numpy
+from chatbot_copy import test_function
 
 ''' M:
 Change to pub and sub format.
@@ -31,6 +32,8 @@ while True:
     Consider setting up publisher here, where if face detected and timer less than 5, set timer to 0, and carry out chatbot function. '''
     if isinstance(faces, numpy.ndarray):
         print("Face detected!\n")
+        test_function()
+        video_capture.release()
 
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
