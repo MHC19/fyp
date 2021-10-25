@@ -37,7 +37,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/talker.py 
-  scripts/listener.py
+  scripts/simple_pub_and_sub_test/listener.py
+  scripts/face_detection/face_detection_test.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

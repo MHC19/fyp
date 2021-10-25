@@ -1,7 +1,9 @@
 # From https://www.mygreatlearning.com/blog/real-time-face-detection/
 import cv2
-import os
 import numpy
+import os
+import rospy
+from std_msgs.msg import String
 
 ''' M:
 Change to pub and sub format.
@@ -42,3 +44,24 @@ while True:
 
 video_capture.release()
 cv2.destroyAllWindows()
+
+def talker():
+    pub = rospy.Publisher('face_detected', String, queue_size=5)
+    rospy.init_node('face_detection', anonymous=True)
+    rate = rospy.Rate(5.0)
+
+    # M: Publish string to topic
+    pub.publish()
+    ''' M:
+    Both chatbot and noise detection will subscribe to the topic.
+    In chatbot, if signal = face_detected, then carry out function, and publish to speaker, reset timer to 0. If timer >= 5, then break.
+    In noise detection, if signal != face_detected, then carry out function.
+     '''
+
+# M: Informs us that this is an executable script
+if __name__ == '__main__':
+    try:
+        talker()
+    # M: Catch exceptions, such as when user presses ctrl+c
+    except Exception as e:
+        print(e)
