@@ -39,5 +39,6 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/simple_pub_and_sub_test/listener.py
   scripts/face_detection/face_detection.py
+  scripts/chatbot/chatbot.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

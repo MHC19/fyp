@@ -26,7 +26,7 @@ video_capture = cv2.VideoCapture(0)
 
 
 def talker():
-    pub = rospy.Publisher('face_detection_topic', String, queue_size=5)
+    pub = rospy.Publisher('face_detection_topic', String, queue_size=1)
     rospy.init_node('face_detection', anonymous=True)
     # M: This will affect webcam framerate, since we're using rate.sleep()
     rate = rospy.Rate(60.0)
@@ -52,6 +52,14 @@ def talker():
         # https://stackoverflow.com/questions/14113187/how-do-you-set-a-conditional-in-python-based-on-datatypes/49067320
         # https://stackoverflow.com/questions/36783921/valueerror-when-checking-if-variable-is-none-or-numpy-array
         # M: Check if face detected. Used in mode switching
+        ''' 
+        M: Considerations
+        Have two modes: chatbot_mode and noise_detection mode.
+        When face detected, enter chatbot_mode and start 5s timer.
+        While face remains detected, reset 5s timer to 0.
+        If face not detected, let timer run to 5s.
+        If timer = 5s, enter noise_detection mode.
+        When face detected again, enter chatbot_mode... '''
         if isinstance(faces, numpy.ndarray):
             pub.publish("face_detected")
             rospy.loginfo("face_detected")
