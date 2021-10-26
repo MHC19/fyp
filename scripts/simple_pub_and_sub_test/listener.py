@@ -7,7 +7,7 @@ import rospy
 from std_msgs.msg import String
 
 def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
+    rospy.loginfo(rospy.get_caller_id() + 'I heard: %s', data.data)
 
 def listener():
 
@@ -21,7 +21,7 @@ def listener():
     rospy.init_node('listener', anonymous=True)
 
     # M: Declares that node subscribes to chatter topic, and when new messages are received, callback is invoked with the message as the first argument
-    rospy.Subscriber('face_detected', String, callback)
+    rospy.Subscriber('face_detection_topic', String, callback)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()

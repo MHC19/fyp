@@ -38,6 +38,6 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
   scripts/simple_pub_and_sub_test/listener.py
-  scripts/face_detection/face_detection_test.py
+  scripts/face_detection/face_detection.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
