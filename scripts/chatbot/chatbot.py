@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import aiml  # M: Used in requesting AIML chatbot responses
 import os  # M: Used to get path of files
 import rospy  # M: Used in creating ROS nodes (publisher and subscriber)
@@ -35,6 +35,7 @@ def callback(data):
         r = sr.Recognizer()
 
         with sr.Microphone() as source:
+            r.adjust_for_ambient_noise(source)
             audio_text = r.listen(source)
 
             # When no mic activity, close mic

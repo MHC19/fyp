@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 import numpy as np
 import sounddevice as sd # M: Used in getting mic volume
 from datetime import datetime
