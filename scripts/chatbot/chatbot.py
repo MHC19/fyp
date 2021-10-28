@@ -35,6 +35,7 @@ def callback(data):
         r = sr.Recognizer()
 
         with sr.Microphone() as source:
+            # https://www.geeksforgeeks.org/speech-recognition-in-python-using-google-speech-api/
             r.adjust_for_ambient_noise(source)
             audio_text = r.listen(source)
 

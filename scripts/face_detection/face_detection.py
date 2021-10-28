@@ -4,6 +4,7 @@ import cv2
 import numpy
 import os
 import rospy
+from datetime import datetime
 from std_msgs.msg import String
 
 ''' M:
@@ -29,7 +30,9 @@ def talker():
     pub = rospy.Publisher('face_detection_topic', String, queue_size=1)
     rospy.init_node('face_detection', anonymous=True)
     # M: This will affect webcam framerate, since we're using rate.sleep()
-    rate = rospy.Rate(10.0)
+    rate = rospy.Rate(5.0)
+    
+    start_time = datetime(1990, 1, 1)
 
     while not rospy.is_shutdown():
         # Capture frame-by-frame
@@ -61,11 +64,15 @@ def talker():
         If timer = 5s, enter noise_detection mode.
         When face detected again, enter chatbot_mode... '''
         if isinstance(faces, numpy.ndarray):
+            # M: Set and reset start time
+            start_time = datetime.now()
+
             pub.publish("face_detected")
             rospy.loginfo("face_detected")
         else:
-            pub.publish("no_detection")
-            rospy.loginfo("no_detection")
+            if (isinstance(faces, numpy.ndarray) == False) and ((datetime.now() - start_time).total_seconds() >= 5):
+                pub.publish("no_detection")
+                rospy.loginfo("no_detection")
 
         rate.sleep()
 
