@@ -30,7 +30,7 @@ def talker():
     pub = rospy.Publisher('face_detection_topic', String, queue_size=1)
     rospy.init_node('face_detection', anonymous=True)
     # M: This will affect webcam framerate, since we're using rate.sleep()
-    rate = rospy.Rate(5.0)
+    rate = rospy.Rate(1.0)
     
     start_time = datetime(1990, 1, 1)
 

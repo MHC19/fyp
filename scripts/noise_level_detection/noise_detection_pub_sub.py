@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
 import numpy as np
+from numpy.core.fromnumeric import mean
 import sounddevice as sd  # M: Used in getting mic volume
 import rospy
 from datetime import datetime
@@ -45,13 +46,15 @@ from std_msgs.msg import String
 
 
 def stream_callback(indata, frames, time, status):
-    print("Starting stream_callback!!!\n\n")
+    print("IN STREAM")
     return
+    # print("Starting stream_callback!!!\n\n")
     global array_meanA 
     global n
     global timer_on
     global start_time
     # global current_time
+    global data
 
     volume_norm = np.linalg.norm(indata) * 10
 
@@ -70,6 +73,7 @@ def stream_callback(indata, frames, time, status):
         meanA = array_meanA[h] + meanA
 
     meanA = meanA / n
+    
 
     if meanA >= 10 and timer_on == False:
         # M: Start timer when volume is loud and timer is off
@@ -84,14 +88,14 @@ def stream_callback(indata, frames, time, status):
     current_time = datetime.now()
     timer = (current_time - start_time).total_seconds()
 
-    if timer >= 5 and timer_on == True:
+    if timer >= 5:
         timer_on = False
+        # Use TTS to play warning
         print("Please lower your volume, loud for 5 seconds!")
         timer = 0
     
 
 def listener_callback(data):
-
     if data.data == "no_detection":
         stream = sd.InputStream(callback=stream_callback)
 
@@ -103,8 +107,10 @@ def listener_callback(data):
         stream.start()
 
         if data.data == "face_detected":
-            stream_start = False
             print("NO FACE")
+            raise sd.CallbackStop()
+            stream_start = False
+            
     
     print("Aborting stream")
     stream.abort()
