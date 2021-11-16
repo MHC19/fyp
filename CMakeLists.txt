@@ -37,8 +37,17 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/simple_pub_and_sub_test/listener.py
-  scripts/face_detection/face_detection.py
-  scripts/chatbot/chatbot.py
+  # scripts/simple_pub_and_sub_test/listener.py
+  # scripts/face_detection/face_detection.py
+  scripts/face_detection/face_detection_clean.py
+  # scripts/noise_level_detection/noise_detection_pub_sub.py
+  # scripts/chatbot/chatbot.py
+  # scripts/noise_level_detection/noise_detection_pub_sub2.py
+  # scripts/noise_level_detection/noise_detection.py
+  # scripts/noise_level_detection/noise_detection_2021-11-09_1318.py
+  # scripts/chatbot/chatbot_function_node.py
+  scripts/chatbot/chatbot_function_node_clean.py
+  scripts/noise_level_detection/noise_detection_clean.py
+  scripts/chatbot/chatbot_main_clean.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

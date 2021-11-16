@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 import aiml  # M: Used in requesting AIML chatbot responses
 import os  # M: Used to get path of files
 import rospy  # M: Used in creating ROS nodes (publisher and subscriber)
@@ -6,35 +6,33 @@ import speech_recognition as sr  # M: Used for recognizing user speech
 from gtts import gTTS  # M: Used in translating text response into speech
 from playsound import playsound  # M: Used to play bot_response.mp3
 from std_msgs.msg import String
+from datetime import datetime
 
-# ----- (CURRENTLY UNUSED) - may use for publishing to speaker node
-# # --- Setting up pub and sub stuff
-# # M: Used to publish topic for USB speaker
-# ''' M:
-# Process flow: face_detection face detected -> chatbot.py listens to user commands -> retrieves bot response based on matching patterns in aiml files -> saves to mp3 file -> publishes to bot USB speaker '''
-# def talker():
-#     # M: Topic - Name: Speech, Type: String (requires import from std_msgs), queue_size: 10
-#     # M: Might have to do some remapping for the topic that the USB speaker will be subscribed to in launch files
-#     pub = rospy.Publisher('speech', String, queue_size=5)
-#     # M: Tells rospy name of node
-#     rospy.init_node('speech_recognition', anonymous=True)
-#     # M: Rate at which messages are published. In this case, 5Hz
-#     rate = rospy.Rate(5.0)
-#     # M: Initialize recognizer class (for recognizing speech)
-#     r = sr.Recognizer()
+''' I could have another node that receives a message from the chatbot node, and then sends back a completion signal, to allow for simulataneous operation.
+The problem now is that when the function is finished, the previous messages come in. So if, there are 2 face_detected messages, then first message received, carry out function, then second message received, carry out function, then finished. '''
 
-# M: Callback used to carry out chatbot functionality
+
+def talker():
+    global pub
+
+    # M: 10Hz = loop 10 times per second
+    # M: f = 1 / t = 1 / 10 = 0.2 s per loop
+    rate = rospy.Rate(60)  # 60hz
+
+    pub.publish("function_complete")
 
 
 def callback(data):
-    # TEST CODE
-    rospy.loginfo("Message received: %s" % data.data)
+    print("In chatbot_function_node callback")
 
-    if data.data == "face_detected":
-        # Initialize recognizer class (for recognizing the speech)
+    talker()
+    
+    if data.data == "do_function":
         r = sr.Recognizer()
 
         with sr.Microphone() as source:
+            # https://www.geeksforgeeks.org/speech-recognition-in-python-using-google-speech-api/
+            r.adjust_for_ambient_noise(source)
             audio_text = r.listen(source)
 
             # When no mic activity, close mic
@@ -68,26 +66,22 @@ def callback(data):
             print(e)
             print("user > ...")
             print("BOT >> Sorry, I did not get that...")
+        pass
+
+        talker()
+    pass
 
 
 def listener():
-    # MQ: Shouldn't I move this somewhere else since this same node would be used as pub and sub, not only in listener?
-    # MQ: Should I only create the chatbot node when there is a signal coming in? So once there is no signal, it dies?
-    rospy.init_node('chatbot', anonymous=True)
+    rospy.Subscriber('chatbot_topic', String, callback)
 
-    # M: Declare that node subscribes to topic. Messages received are passed to callback as first argument
-    rospy.Subscriber('face_detection_topic', String, callback)
-
-    # M: Keeps python from exiting until node is stopped
     rospy.spin()
 
 
-# M: Informs us that this is an executable script
 if __name__ == '__main__':
     try:
-        # QM: Insert regex maybe?
+        rospy.init_node('chatbot_function_node', anonymous=True)
 
-        ######### SETUP SECTION ########
         # M: Get directory path of current file
         # NM: os.path.realpath(__file__) shows the path including the filename, so we wish to extract only the directory path
         path = os.path.dirname(os.path.realpath(__file__))
@@ -104,7 +98,10 @@ if __name__ == '__main__':
         # M: This will load the other AIML files
         k.respond('LEARNING AIML FILES')
 
+        # M: Declares that node is publishing chatter topic, message type String (std_msgs.msg.String), which is a simple String container. queue_size is for when a subscriber is not receiving the messages fast enough
+        pub = rospy.Publisher('face_detection_topic', String, queue_size=10)
         listener()
-    # M: Catch exceptions, such as when user presses ctrl+c
+        
+    
     except Exception as e:
-        print(e)
+        print("Exception thrown: {}".format(e))

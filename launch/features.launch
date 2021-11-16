@@ -1,0 +1,14 @@
+<launch>
+    <!-- 
+      pkg: name of package
+      type: executable name within package that contains desired node
+      name: give the node a name - will be used in remap from attribute
+      output: display on terminal
+     -->
+    <!-- Notes:
+    Find way to launch nodes in different terminals -->
+    <node pkg="square_path" type="moving.py" name="moving_node" output="screen">
+        <!-- remap: "Trick" a node that subscribed to the "to" topic to subscribe to the "from" topic too -->
+        <remap from="moving_node/cmd_vel" to="cmd_vel_mux/input/teleop" />
+    </node>
+</launch>

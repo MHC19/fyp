@@ -1,7 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 import numpy as np
+import rospy
 import sounddevice as sd # M: Used in getting mic volume
 from datetime import datetime
+from std_msgs.msg import String
 
 ''' M:
 Requires converting to pub and sub for ROS.
