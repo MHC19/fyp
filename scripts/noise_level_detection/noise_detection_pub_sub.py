@@ -47,7 +47,6 @@ from std_msgs.msg import String
 
 def stream_callback(indata, frames, time, status):
     print("IN STREAM")
-    return
     # print("Starting stream_callback!!!\n\n")
     global array_meanA 
     global n

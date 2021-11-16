@@ -40,7 +40,7 @@ for h in range(n):
 
 start_time = datetime.now()
 
-stream = sd.InputStream(callback=callback, blocksize=0)
+stream = sd.InputStream(callback=callback)
 print("Starting stream!\n\n")
 stream.start()
 stream_start = True

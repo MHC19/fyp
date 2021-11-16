@@ -7,6 +7,10 @@ import rospy
 from datetime import datetime
 from std_msgs.msg import String
 
+''' NOTE:
+2021/11/10 1531
+Add 5 seconds timer, and wait for chatbot function to be complete, and then only perform noise detection. '''
+
 ''' M:
 (DONE) Change to pub and sub format. 
 Find way to send signal to chatbot or noise_level_detection.
@@ -27,10 +31,10 @@ video_capture = cv2.VideoCapture(0)
 
 
 def talker():
-    pub = rospy.Publisher('face_detection_topic', String, queue_size=1)
+    pub = rospy.Publisher('face_detection_topic', String, queue_size=10)
     rospy.init_node('face_detection', anonymous=True)
     # M: This will affect webcam framerate, since we're using rate.sleep()
-    rate = rospy.Rate(1.0)
+    rate = rospy.Rate(60.0)
     
     start_time = datetime(1990, 1, 1)
 
@@ -70,7 +74,8 @@ def talker():
             pub.publish("face_detected")
             rospy.loginfo("face_detected")
         else:
-            if (isinstance(faces, numpy.ndarray) == False) and ((datetime.now() - start_time).total_seconds() >= 5):
+            # if (isinstance(faces, numpy.ndarray) == False) and ((datetime.now() - start_time).total_seconds() >= 5):
+            if isinstance(faces, numpy.ndarray) == False:
                 pub.publish("no_detection")
                 rospy.loginfo("no_detection")
 
