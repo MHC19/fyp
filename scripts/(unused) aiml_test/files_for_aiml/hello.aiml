@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Hello there!</li>
+                <li>Hi!</li>
+                <li>Greetings!</li>
+                <li>Hola!</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELLO *</pattern>
+        <template>
+            <srai>HELLO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HELLO</pattern>
+        <template>
+            <srai>HELLO</srai>
+
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HELLO *</pattern>
+        <template>
+            <srai>HELLO</srai>
+
+        </template>
+    </category>
+
+    <!-- Below is working because of unique pattern GRT -->
+    <!-- <category>
+        <pattern>GRT</pattern>
+        <template>
+            <random>
+                <li>Hello there!</li>
+                <li>Hi!</li>
+                <li>Greetings!</li>
+                <li>Hola!</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <srai>GRT</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELLO *</pattern>
+        <template>
+            <srai>GRT</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HELLO</pattern>
+        <template>
+            <srai>GRT</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HELLO *</pattern>
+        <template>
+            <srai>GRT</srai>
+        </template>
+    </category> -->
+
+    <!-- <category>
+        <pattern>MY DOGS NAME IS *</pattern>
+        <template>
+            <think><set name="dog"><star /></set></think>
+            <srai>WOOPS</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>WOOPS</pattern>
+        <template>
+            Your dog's name is <get name="dog"/>.
+        </template>
+    </category> -->
+</aiml>

@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="capstone_fyp" name="face_detection_node" type="face_detection_clean.py" output="screen" launch-prefix="gnome-terminal --command"></node>
+
+    <node pkg="capstone_fyp" name="noise_detection_node" type="noise_detection_clean.py" output="screen" launch-prefix="gnome-terminal --command"></node>
+</launch>

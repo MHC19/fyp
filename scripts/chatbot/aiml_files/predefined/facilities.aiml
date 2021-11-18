@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- FACILITIES generic category -->
+    <!-- In the real-world, should return actual location. But in this case, returns random from list. -->
+    <category>
+        <pattern>FACILITIES</pattern>
+        <template>
+            <!-- Ask question, then change answer depending on different levels. -->
+            We have various facilities available in Sunway Campus Library! There are Printing Rooms, Computer Clusters, Group Project Pods and a Viewing Zone.
+        </template>
+    </category>
+
+    <!-- List available services, such as library tours, referencing services, ALLS, Document Delivery and Workshops. -->
+
+    <category>
+        <pattern>* FACILITIES</pattern>
+        <template>
+            <srai>FACILITIES</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>FACILITIES *</pattern>
+        <template>
+            <srai>FACILITIES</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* FACILITIES *</pattern>
+        <template>
+            <srai>FACILITIES</srai>
+        </template>
+    </category>
+</aiml>

@@ -1,8 +1,7 @@
 #!/usr/bin/env python2
-import rospy  # M: Used in creating ROS nodes (publisher and subscriber)
-import speech_recognition as sr  # M: Used for recognizing user speech
-from std_msgs.msg import String # NOTE: Get from ROS wiki
-from datetime import datetime # M: Used in making timers
+import rospy  # M: Creating ROS nodes (publisher and subscriber)
+from std_msgs.msg import String # M: Wrapper for String in ROS messages
+from datetime import datetime # M: Making timers
 
 def talker():
     print("Publishing do_function message!")
@@ -28,10 +27,10 @@ def callback(data):
         # M: Set start_time to current time. Used in calculating duration
         start_time = datetime.now()
 
-        print("Waiting for 2 seconds...")
+        print("Waiting for .25 second...")
 
-        # M: Wait for 2 seconds before opening lock
-        while ((datetime.now() - start_time).total_seconds() <= 5):
+        # M: Wait for .25 second before opening lock
+        while ((datetime.now() - start_time).total_seconds() <= 0.25):
             continue
 
         print("Reopening lock!")

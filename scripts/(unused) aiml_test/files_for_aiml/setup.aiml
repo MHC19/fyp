@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+    <category>
+        <pattern>LOAD FILES FOR AIML</pattern>
+        <template>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/aiml_test/files_for_aiml/hello.aiml</learn>
+        </template>
+    </category>
+</aiml>

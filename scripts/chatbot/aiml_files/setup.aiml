@@ -3,33 +3,32 @@
     <category>
         <pattern>LEARNING AIML FILES</pattern>
         <template>
-            <!-- Loading everything -->
-            <!-- <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/*.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/customized/*.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/*.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_searching/*.aiml</learn> -->
-
-            <!-- Loading based on order from https://code.google.com/archive/p/aiml-en-us-ovrp-infotabby/wikis/FileLoadingOrder.wiki -->
+            <!-- Loading order: https://code.google.com/archive/p/aiml-en-us-ovrp-infotabby/wikis/FileLoadingOrder.wiki -->
             <!-- First load -->
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction0.safe.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction1.safe.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction2.safe.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction3.safe.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction4.safe.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reductions-update.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/atomic-categories0.aiml</learn>
+            <!-- <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction0.safe.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction1.safe.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction2.safe.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction3.safe.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reduction4.safe.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/reductions-update.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/atomic-categories0.aiml</learn> -->
 
-            <!-- Second load
-            Note: Missing yesno.aiml -->
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/client_profile.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/salutations.aiml</learn>
+            <!-- Second load -->
+            <!-- Note: Missing yesno.aiml -->
+            <!-- <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/client_profile.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/salutations.aiml</learn> -->
 
             <!-- Third load: Load all other files -->
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/*.aiml</learn>
-            <!-- Not loading searching, since causing issues -->
-            <!-- <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_searching/*.aiml</learn> -->
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/customized/*.aiml</learn>
-            <learn>catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/*.aiml</learn>
+            <!-- <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_reductions/*.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/customized/*.aiml</learn>
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/my_info_tabby/*.aiml</learn> -->
+
+            <!-- Not loading searching - causing infinite looping question issues -->
+            <!-- <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/bot_searching/*.aiml</learn> -->
+
+            <!-- PREDEFINED TEST AIML -->
+            <!-- Uncomment this for performing predefined test script. -->
+            <learn>/home/mh/catkin_ws/src/capstone_fyp/scripts/chatbot/aiml_files/predefined/*.aiml</learn>
         </template>
     </category>
 </aiml>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- OPENING generic category -->
+    <category>
+        <pattern>OPENING</pattern>
+        <template>
+            For both the Main Entrance and Mezzanine Entrance, we are open from 8 AM to 10 PM!
+        </template>
+    </category>
+
+    <category>
+        <pattern>* OPENING</pattern>
+        <template>
+            <srai>OPENING</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>OPENING *</pattern>
+        <template>
+            <srai>OPENING</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* OPENING *</pattern>
+        <template>
+            <srai>OPENING</srai>
+        </template>
+    </category>
+
+    <!-- OPEN generic category -->
+    <category>
+        <pattern>OPEN</pattern>
+        <template>
+            <srai>OPENING</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* OPEN</pattern>
+        <template>
+            <srai>OPEN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>OPEN *</pattern>
+        <template>
+            <srai>OPEN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* OPEN *</pattern>
+        <template>
+            <srai>OPEN</srai>
+        </template>
+    </category>
+</aiml>

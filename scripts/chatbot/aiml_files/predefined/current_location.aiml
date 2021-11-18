@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- In the real-world, should return actual location. But in this case, returns random from list. -->
+    <!-- CURRENTLOCATION generic category -->
+    <category>
+        <pattern>CURRENTLOCATION</pattern>
+        <template>
+            <random>
+                <li>You are currently at the Printing Stations on the Basement Level</li>
+                <li>You are currently at the Collaboration Zone on the Basement Level</li>
+                <li>You are currently at the Malaysiana Collections on the Basement Level</li>
+                <li>You are currently on the Mezzanine Level</li>
+            </random>,<get name="name"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>LOCATION</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* LOCATION</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>LOCATION *</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* LOCATION *</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE AM I</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE AM I *</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* WHERE AM I</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* WHERE AM I *</pattern>
+        <template>
+            <srai>CURRENTLOCATION</srai>
+        </template>
+    </category>
+</aiml>

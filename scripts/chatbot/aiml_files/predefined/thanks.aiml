@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- THANKS generic category -->
+    <category>
+        <pattern>THANKS</pattern>
+        <template>
+            <random>
+                <li>You're welcome</li>
+                <li>You're most welcome</li>
+                <li>Of course</li>
+                <li>No problem</li>
+                <li>No worries</li>
+            </random>,<get name="name"/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>* THANKS</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>THANKS *</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* THANKS *</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+
+    <!-- THANKS generic category -->
+
+    <category>
+        <pattern>* THANK</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* THANK</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>THANK *</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* THANK *</pattern>
+        <template>
+            <srai>THANKS</srai>
+        </template>
+    </category>
+</aiml>

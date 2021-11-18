@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="capstone_fyp" name="face_detection_node" type="face_detection_clean.py" output="screen" launch-prefix="gnome-terminal --command"></node>
+
+    <node pkg="capstone_fyp" name="chatbot_main_node" type="chatbot_main_clean.py" output="screen" launch-prefix="gnome-terminal --command"></node>
+
+    <node pkg="capstone_fyp" name="chatbot_function_node" type="chatbot_function_node_clean.py" output="screen" launch-prefix="gnome-terminal --command"></node>
+</launch>

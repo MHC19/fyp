@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <category>
+        <pattern>REPORT</pattern>
+        <template>
+            Currently, there are 50 students in the Basement level and 30 students in the Mezzanine level. There are 10 books that need reshelving.
+        </template>
+    </category>
+
+    <category>
+        <pattern>* REPORT</pattern>
+        <template>
+            <srai>REPORT</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>REPORT *</pattern>
+        <template>
+            <srai>REPORT</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* REPORT *</pattern>
+        <template>
+            <srai>REPORT</srai>
+        </template>
+    </category>
+</aiml>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- HELLO generic category -->
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Hi there.</li>
+                <li>Hello there.</li>
+                <li>Greetings.</li>
+                <li>Hello.</li>
+            </random>
+            What is your name?
+            <think>
+                <set name="topic">USERNAME</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELLO *</pattern>
+        <template>
+            <srai>HELLO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HELLO</pattern>
+        <template>
+            <srai>HELLO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HELLO *</pattern>
+        <template>
+            <srai>HELLO</srai>
+        </template>
+    </category>
+
+    <!-- HI generic category -->
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <srai>HELLO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HI *</pattern>
+        <template>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HI</pattern>
+        <template>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* HI *</pattern>
+        <template>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+    <!-- Set username after greeting -->
+    <topic name="USERNAME">
+        <category>
+            <pattern>*</pattern>
+            <template>
+                <think>
+                    <set name="username"><star /></set>
+                </think>
+                Nice to meet you, <get name="username"/>! How can I help you?
+                <srai>RESET</srai>
+            </template>
+        </category>
+    </topic>
+
+    <category>
+        <pattern>RESET</pattern>
+        <template>
+            <think>
+                <set name="topic"></set>
+            </think>
+            Resetting topic
+        </template>
+    </category>
+</aiml>

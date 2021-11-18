@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- RETURN generic category -->
+    <category>
+        <pattern>RETURN</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* RETURN</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>RETURN *</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* RETURN *</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>RETURNED</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* RETURNED</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>RETURNED *</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* RETURNED *</pattern>
+        <template>
+            <srai>RTRN</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>RTRN</pattern>
+        <template>
+            There are 4 books currently at the front desk. I'll bring them for you!
+        </template>
+    </category>
+</aiml>

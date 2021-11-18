@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <!-- SERVICES generic category -->
+    <category>
+        <pattern>SERVICES</pattern>
+        <template>
+            We offer various services in Sunway Campus Library. There are library tours for new students and staff, academic writing services and workshops.
+        </template>
+    </category>
+
+    <category>
+        <pattern>* SERVICES</pattern>
+        <template>
+            <srai>SERVICES</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>SERVICES *</pattern>
+        <template>
+            <srai>SERVICES</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* SERVICES *</pattern>
+        <template>
+            <srai>SERVICES</srai>
+        </template>
+    </category>
+</aiml>

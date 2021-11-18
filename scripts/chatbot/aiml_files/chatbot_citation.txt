@@ -1,0 +1,4 @@
+aiml files that within the bot_reductions, customized, my_info_tabby, and not_used folders are adapted from https://code.google.com/archive/p/aiml-en-us-ovrp-infotabby/
+
+APA Citation
+Google Code Archive - Long-term storage for Google Code Project Hosting. (2011, July 25). Google Code Archive; Google. https://code.google.com/archive/p/aiml-en-us-ovrp-infotabby/

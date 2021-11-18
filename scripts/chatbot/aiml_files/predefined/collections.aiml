@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+    <category>
+        <pattern>COLLECTIONS</pattern>
+        <template>
+                The Sunway Campus Library offers various collections, such as the Harvard Collection, the Malaysiana Collection, the Light Reading Collection and the Open Shelf Collection, to name a few.
+        </template>
+    </category>
+
+    <category>
+        <pattern>* COLLECTIONS</pattern>
+        <template>
+            <srai>COLLECTIONS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>COLLECTIONS *</pattern>
+        <template>
+            <srai>COLLECTIONS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* COLLECTIONS *</pattern>
+        <template>
+            <srai>COLLECTIONS</srai>
+        </template>
+    </category>
+</aiml>
